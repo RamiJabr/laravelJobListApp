@@ -13,8 +13,8 @@ class JobController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {        
+        return view('jobs.index', ["jobs"=>Job::all()]);
     }
 
     /**
@@ -22,9 +22,16 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+         Job::create([
+            'title' => $request['title'],
+            'description' => $request['description'],
+            'company' => $request['company'],
+            'type' => $request['type'],
+       ]);
+
+       return redirect("/jobs");
     }
 
     /**
@@ -35,7 +42,7 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+                    
     }
 
     /**
