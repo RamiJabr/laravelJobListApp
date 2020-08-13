@@ -17,7 +17,8 @@ class CreateCompaniesTable extends Migration
             $table->string("name");
             $table->string("trade");
             $table->string("address");
-            $table->json("jobs");
+            $table->string("createdBy");
+            $table->integer("userId");
             $table->id();
             $table->timestamps();
         });

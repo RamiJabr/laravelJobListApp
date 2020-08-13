@@ -14,8 +14,14 @@
         <input type="text" class="form-control" name="description" id="description" placeholder="Add a small description">
       </div>
       <div class="form-group">
-        <label for="description">Company</label>
-        <input type="text" class="form-control" name="company" id="company" placeholder="Add a small description">
+        <label for="company">Company</label>
+        <select type="text" class="form-control" name="company" id="company" placeholder="Add a small description">
+       
+        
+        @foreach( $companies as $company )
+          <option value="{{ $company->id }}, {{ $company->name }}">{{ $company->name }}</option>  
+          @endforeach
+      </select>
       </div>
       <div class="form-group">
         <label for="description">Type</label>

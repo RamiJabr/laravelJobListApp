@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Company;
 use Illuminate\Http\Request;
 
+use function GuzzleHttp\json_decode;
+
 class CompanyController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+       return view('companies.index', ['companies' => Company::all()]);
     }
 
     /**
@@ -24,7 +26,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('companies.create');
     }
 
     /**
@@ -35,7 +37,20 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        error_log($request);
+        Company::create([
+            'name' => $request['name'],
+            'address' => $request['address'],
+            'trade' => $request['trade'],
+            'createdBy' => $request->user()->name,
+            'userId' => $request->user()->id
+        ]);
+
+        return view ('companies.index', [
+            'companies' => Company::all()
+        ]);
     }
 
     /**
@@ -44,9 +59,11 @@ class CompanyController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show($id)
     {
-        //
+        return view('companies.show', [
+            "company"=> Company::findOrFail($id)
+        ]);
     }
 
     /**
@@ -55,9 +72,11 @@ class CompanyController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function edit(Company $company)
+    public function edit($id)
     {
-        //
+        return view("companies.edit", [
+            "company" => Company::findOrFail($id)
+        ]);
     }
 
     /**
@@ -67,9 +86,19 @@ class CompanyController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request, $id)
     {
-        //
+        Company::updateOrCreate([
+            'id' => $id,
+        ], [
+            'name' => $request['name'],
+            'address' => $request['address'],
+            'trade' => $request['trade'],
+        ]);
+
+        return view('companies.index', [
+            "companies" => Company::all()
+        ]);
     }
 
     /**

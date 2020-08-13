@@ -18,18 +18,21 @@ Route::get('/', function () {
 });
 
 //Jobs
-Route::get('/jobs/create', 'JobController@create')->name('jobs.create');
-Route::post('/jobs/store', 'JobController@store')->name('jobs.store');
-Route::get('/jobs/edit/{id}', 'JobController@edit')->name('jobs.edit');
-Route::put('/jobs/update/{id}', 'JobController@update')->name('jobs.update');
+Route::get('/jobs/create', 'JobController@create')->name('jobs.create')->middleware('auth');
+Route::post('/jobs/store', 'JobController@store')->name('jobs.store')->middleware('auth');
+Route::get('/jobs/edit/{id}', 'JobController@edit')->name('jobs.edit')->middleware('auth');
+Route::put('/jobs/update/{id}', 'JobController@update')->name('jobs.update')->middleware('auth');
 Route::get('/jobs', 'JobController@index')->name('jobs.index');
 Route::get('/jobs/{id}', 'JobController@show')->name('jobs.show');
 
 //Companies
-Route::post('/companies', 'CompanyController@create')->name('companies.create');
-Route::put('/companies/{id}', 'CompanyController@update')->name('companies.update');
+Route::get('/companies/create', 'CompanyController@create')->name('companies.create')->middleware('auth');
+Route::post('/companies/store', 'CompanyController@store')->name('companies.store')->middleware('auth');
+Route::get('/companies/edit/{id}', 'CompanyController@edit')->name('companies.edit')->middleware('auth');
+Route::put('/companies/update/{id}', 'CompanyController@update')->name('companies.update')->middleware('auth');
 Route::get('/companies', 'CompanyController@index')->name('companies.index');
 Route::get('/companies/{id}', 'CompanyController@show')->name('companies.show');
+
 
 
 Auth::routes();

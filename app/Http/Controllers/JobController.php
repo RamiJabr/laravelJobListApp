@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use App\Job;
 use Illuminate\Http\Request;
+
+use function GuzzleHttp\json_decode;
 
 class JobController extends Controller
 {
@@ -26,7 +29,9 @@ class JobController extends Controller
      */
     public function create(Request $request)
     {
-        return view('jobs.create');
+        return view('jobs.create', [
+            "companies"=>Company::all()
+        ]);
     }
 
     /**
@@ -37,12 +42,18 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
+        $company = explode(",",$request['company'] );
+
         Job::create([
             'title' => $request['title'],
             'description' => $request['description'],
-            'company' => $request['company'],
+            'companyId' => $company[0],
+            'companyName' => $company[1],
             'type' => $request['type'],
+            'createdBy' => $request->user()->name,
+            'userId' => $request->user()->id,
         ]);
+
 
         return redirect("/jobs");
     }
