@@ -13,8 +13,10 @@ class JobController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {        
-        return view('jobs.index', ["jobs"=>Job::all()]);
+    {
+        return view('jobs.index', [
+            "jobs" => Job::all()
+            ]);
     }
 
     /**
@@ -24,14 +26,7 @@ class JobController extends Controller
      */
     public function create(Request $request)
     {
-         Job::create([
-            'title' => $request['title'],
-            'description' => $request['description'],
-            'company' => $request['company'],
-            'type' => $request['type'],
-       ]);
-
-       return redirect("/jobs");
+        return view('jobs.create');
     }
 
     /**
@@ -42,7 +37,14 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-                    
+        Job::create([
+            'title' => $request['title'],
+            'description' => $request['description'],
+            'company' => $request['company'],
+            'type' => $request['type'],
+        ]);
+
+        return redirect("/jobs");
     }
 
     /**
@@ -51,9 +53,11 @@ class JobController extends Controller
      * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function show(Job $job)
+    public function show($id)
     {
-        //
+        return view('jobs.show', [
+            "job" => Job::findOrFail($id)
+        ]);
     }
 
     /**
@@ -62,9 +66,11 @@ class JobController extends Controller
      * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function edit(Job $job)
+    public function edit($id)
     {
-        //
+        return view("jobs.edit", [
+            "job" => Job::findOrFail($id)
+        ]);
     }
 
     /**
@@ -74,9 +80,20 @@ class JobController extends Controller
      * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Job $job)
+    public function update(Request $request, $id)
     {
-        //
+        Job::updateOrCreate([
+            'id' => $id,
+        ], [
+            'title' => $request['title'],
+            'description' => $request['description'],
+            'company' => $request['company'],
+            'type' => $request['type'],
+        ]);
+
+        return view('jobs.index', [
+            "jobs" => Job::all()
+        ]);
     }
 
     /**

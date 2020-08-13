@@ -99,7 +99,7 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
                
-                <create-job-component></create-job-component>
+              
             </div>
         </div>
     </body>

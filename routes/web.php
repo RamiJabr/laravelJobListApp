@@ -18,8 +18,10 @@ Route::get('/', function () {
 });
 
 //Jobs
-Route::post('/jobs', 'JobController@create')->name('jobs.create');
-Route::put('/jobs/{id}', 'JobController@update')->name('jobs.update');
+Route::get('/jobs/create', 'JobController@create')->name('jobs.create');
+Route::post('/jobs/store', 'JobController@store')->name('jobs.store');
+Route::get('/jobs/edit/{id}', 'JobController@edit')->name('jobs.edit');
+Route::put('/jobs/update/{id}', 'JobController@update')->name('jobs.update');
 Route::get('/jobs', 'JobController@index')->name('jobs.index');
 Route::get('/jobs/{id}', 'JobController@show')->name('jobs.show');
 

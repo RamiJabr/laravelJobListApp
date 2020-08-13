@@ -3,16 +3,19 @@
 @section('content')
 <div class="container">
 
-    @foreach($jobs as $job)
+   
         <div class="card">
         <h5 class="card-header">{{ $job->title }}</h5>
             <div class="card-body">
                 <div class="card-text">{{ $job->description }}</div>
-                <a href="{{ route('jobs.show', $job->id) }}">More details...</a>
+                <div class="card-text">{{ $job->company }}</div>
+                <div class="card-text">{{ $job->type }}</div>
             </div>
+            <a href="{{ route('jobs.edit', $job->id) }}">edit</a>
         </div>
-    @endforeach
-    <button><a href="/jobs/create">Add an entry</a></button>
+
+        <a href="/jobs">return to all offers</a>
+   
 
 
 </div>

@@ -64,3 +64,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 # laravelJobListApp
 A Job listing app programmed with Laravel and Vue for the Frontend
 >>>>>>> 56ffcee54a4885519b506897a6aeff8b4fc1c885
+
+

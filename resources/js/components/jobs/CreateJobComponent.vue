@@ -10,6 +10,7 @@
         <input type="text" class="form-control" id="description" placeholder="Add a small description">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
     </form>
 </template>
 
