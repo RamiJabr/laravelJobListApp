@@ -73,9 +73,9 @@
 <body>
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
-        <div class="top-right links">
+        <div class="text-center">
             @auth
-            <a href="{{ url('/home') }}">Post or find your dream Job !!!!</a>
+            <a href="{{ url('/jobs') }}">Post or find your dream Job !!!!</a>
             @else
             
             Find your dream job now !!! <a href="{{ route('login') }}">Login</a> or <a href="{{ route('register') }}">Register</a> to post job offers

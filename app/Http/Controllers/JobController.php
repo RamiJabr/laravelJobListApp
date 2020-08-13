@@ -42,7 +42,8 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        $company = explode(",",$request['company'] );
+        $company = explode(",",$request['company']);
+
 
         Job::create([
             'title' => $request['title'],
@@ -101,6 +102,8 @@ class JobController extends Controller
             'company' => $request['company'],
             'type' => $request['type'],
         ]);
+
+        redirect('jobs.index');
 
         return view('jobs.index', [
             "jobs" => Job::all()

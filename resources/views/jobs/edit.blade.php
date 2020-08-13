@@ -16,13 +16,13 @@
       </div>
       <div class="form-group">
         <label for="description">Company</label>
-        <input type="text" class="form-control" name="company" id="company" placeholder="Add a small description" value="{{$job->company}}">
+        <input type="text" readonly="readonly" class="form-control" name="company" id="company" placeholder="{{$job->companyName}}" value="{{$job->companyName}}">
       </div>
       <div class="form-group">
         <label for="description">Type</label>
         <input type="text" class="form-control" name="type" id="type" placeholder="Add a small description" value="{{$job->type}}">
       </div>
-      <input type="submit" class="btn btn-primary">Submit</button>
+      <input type="submit" class="btn btn-primary"></button>
     </div>
   </form>
 

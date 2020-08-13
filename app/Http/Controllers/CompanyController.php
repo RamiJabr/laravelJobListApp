@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Job;
 use Illuminate\Http\Request;
 
 use function GuzzleHttp\json_decode;
@@ -62,7 +63,8 @@ class CompanyController extends Controller
     public function show($id)
     {
         return view('companies.show', [
-            "company"=> Company::findOrFail($id)
+            "company"=> Company::findOrFail($id),
+            "jobs" => Job::where('companyId', $id)->get()
         ]);
     }
 

@@ -17,7 +17,7 @@
         <label for="trade">Trade</label>
         <input type="text" class="form-control" name="trade" id="trade" placeholder="Add a small description about what the company is doing">
       </div>
-      <input type="submit" class="btn btn-primary">Submit</button>
+      <input type="submit" class="btn btn-primary"></button>
     </div>
   </form>
 

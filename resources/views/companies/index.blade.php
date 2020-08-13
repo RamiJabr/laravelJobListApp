@@ -4,7 +4,7 @@
 <div class="container">
 
     @foreach($companies as $company )
-        <div class="card">
+        <div class="card m-4">
         <h5 class="card-header">{{ $company->name }}</h5>
             <div class="card-body">
                 <div class="card-text">{{ $company->address }}</div>
@@ -14,7 +14,7 @@
     @endforeach
     @if (Route::has('login'))
         @auth
-        <button><a href="/companies/create">Add an entry</a></button>
+        <div class="text-center"> <button class="text-center btn btn-primary"><a  class="text-dark" href="/companies/create">Add an entry</a></button></div>
         @endauth
     @endif
 

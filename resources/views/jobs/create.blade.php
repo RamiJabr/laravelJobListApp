@@ -18,6 +18,7 @@
         <select type="text" class="form-control" name="company" id="company" placeholder="Add a small description">
        
         
+        
         @foreach( $companies as $company )
           <option value="{{ $company->id }}, {{ $company->name }}">{{ $company->name }}</option>  
           @endforeach
@@ -27,7 +28,7 @@
         <label for="description">Type</label>
         <input type="text" class="form-control" name="type" id="type" placeholder="Add a small description">
       </div>
-      <input type="submit" class="btn btn-primary">Submit</button>
+      <input type="submit" class="btn btn-primary"></button>
     </div>
   </form>
 

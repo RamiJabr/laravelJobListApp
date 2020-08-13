@@ -15,10 +15,10 @@
         <input type="text" class="form-control" name="address" id="address" placeholder="Add a small description" value="{{$company->address}}">
       </div>
       <div class="form-group">
-        <label for="description">trade</label>
+        <label for="description">Trade</label>
         <input type="text" class="form-control" name="trade" id="trade" placeholder="Add a small description" value="{{$company->trade}}">
       </div>
-      <input type="submit" class="btn btn-primary">Submit</button>
+      <input type="submit" class="btn btn-primary"></button>
     </div>
   </form>
 
