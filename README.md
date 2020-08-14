@@ -4,7 +4,7 @@ A Job listing app programmed with Laravel and blade view templates for the front
 
 Steps to preview :
 
-- Open your Xammp panel and start your appach and mySQL module
+- Open your Xampp panel and start your appach and mySQL module
 - Clone the repository to your folder
 - Open the console inside your folder and run #npm install
 - Run #composer install
