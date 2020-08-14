@@ -98,9 +98,7 @@ class CompanyController extends Controller
             'trade' => $request['trade'],
         ]);
 
-        return view('companies.index', [
-            "companies" => Company::all()
-        ]);
+        return redirect('/companies');
     }
 
     /**
@@ -109,8 +107,10 @@ class CompanyController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy($id)
     {
-        //
+        Company::findOrFail($id)->delete();
+
+        return redirect("/companies");
     }
 }

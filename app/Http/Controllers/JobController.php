@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Company;
 use App\Job;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 use function GuzzleHttp\json_decode;
 
@@ -19,7 +21,7 @@ class JobController extends Controller
     {
         return view('jobs.index', [
             "jobs" => Job::all()
-            ]);
+        ]);
     }
 
     /**
@@ -30,7 +32,7 @@ class JobController extends Controller
     public function create(Request $request)
     {
         return view('jobs.create', [
-            "companies"=>Company::all()
+            "companies" => Company::all()
         ]);
     }
 
@@ -42,7 +44,9 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        $company = explode(",",$request['company']);
+
+
+        $company = explode(",", $request['company']);
 
 
         Job::create([
@@ -94,6 +98,7 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
+  
         Job::updateOrCreate([
             'id' => $id,
         ], [
@@ -103,11 +108,7 @@ class JobController extends Controller
             'type' => $request['type'],
         ]);
 
-        redirect('jobs.index');
-
-        return view('jobs.index', [
-            "jobs" => Job::all()
-        ]);
+        return redirect('/jobs');
     }
 
     /**
@@ -116,8 +117,10 @@ class JobController extends Controller
      * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Job $job)
+    public function destroy($id)
     {
-        //
+        Job::findOrFail($id)->delete();
+
+        return redirect("/jobs");
     }
 }

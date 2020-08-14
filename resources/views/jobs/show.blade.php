@@ -15,7 +15,9 @@
         </div>
         @if (Route::has('login'))
         @auth
+        @can('update', $job)
         <a class="text-right mr-3" href="{{ route('jobs.edit', $job->id) }}">edit</a>
+        @endcan      
         @endauth
         @endif
     </div>

@@ -72,6 +72,12 @@
 
 <body>
     <div class="flex-center position-ref full-height">
+                    @can('isAdmin')
+                        <div class="btn btn-success btn-lg">
+                          You have Admin Access
+                        </div>
+                        @endcan
+        
         @if (Route::has('login'))
         <div class="text-center">
             @auth

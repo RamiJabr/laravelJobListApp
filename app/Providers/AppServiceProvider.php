@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Job;
+use App\Policies\JobPolicy;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,6 +18,10 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
+    protected $policies = [
+        Job::class => JobPolicy::class,
+    ];
+
     /**
      * Bootstrap any application services.
      *
@@ -23,6 +29,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        
     }
 }

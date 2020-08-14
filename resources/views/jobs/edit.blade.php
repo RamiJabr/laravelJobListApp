@@ -2,9 +2,12 @@
 
 @section('content')
 <div class="container">
-  <form action="{{ route('jobs.update', $job->id) }}" method="post"> 
+
+
+  <form action="{{ route('jobs.update', $job->id) }}" method="post">
     @csrf
-    <input name="_method" type="hidden" value="PUT">
+    @method('put')
+
     <div class="container">
       <div class="form-group">
         <label for="title">Title</label>
@@ -23,8 +26,20 @@
         <input type="text" class="form-control" name="type" id="type" placeholder="Add a small description" value="{{$job->type}}">
       </div>
       <input type="submit" class="btn btn-primary"></button>
+
+
+
     </div>
   </form>
+
+  @can('delete', $job)
+  <form action="{{ route('jobs.delete', $job->id) }}" method="POST">
+    @csrf
+    @method('delete')
+    <button type="submit" class="float-right btn btn-danger m-5">delete Post</button>
+  </form>
+  @endcan
+
 
 
 </div>

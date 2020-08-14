@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Job;
+use App\Policies\JobPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -13,7 +15,9 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        // Job::class => JobPolicy::class,
+        'App\Job' => 'App\Policies\JobPolicy',
+        'App\Company' => 'App\Policies\CompanyPolicy',
     ];
 
     /**
@@ -25,6 +29,5 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
     }
 }

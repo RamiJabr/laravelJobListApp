@@ -16,9 +16,12 @@
         </div>
         @if (Route::has('login'))
         @auth
+        @can('update', $company)
         <a class="text-right mr-3" href="{{ route('companies.edit', $company->id) }}">edit</a>
+        @endcan
         @endauth
         @endif
+
         <hr>
 
 
