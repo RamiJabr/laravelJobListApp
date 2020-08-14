@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
-@if(count($jobs) > 0)
+@if(count($companies) > 0)
 @foreach($jobs as $job)
    
    <div class="card m-5">
