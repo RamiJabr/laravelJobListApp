@@ -28,15 +28,15 @@
         <div class="container">
             <h5>Job offers</h5>
             <ul>
-            @foreach( $jobs as $job)
-            <li class="card-text"><a href="{{ route('jobs.show', $job->id) }}">{{ $job->title }}</a></li>
-            @endforeach
+                @foreach( $jobs as $job)
+                <li class="card-text"><a href="{{ route('jobs.show', $job->id) }}">{{ $job->title }}</a></li>
+                @endforeach
             </ul>
             <a class="text-right mr-3" href="{{ route('jobs.create', $company->id) }}">add a job offer</a>
         </div>
     </div>
 
-    <a class="m-5" href="/companies">return to all companies</a>
+    <a class="m-5" href="{{ route('companies.index') }}">return to all companies</a>
 
 
 

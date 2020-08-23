@@ -21,7 +21,7 @@ class JobController extends Controller
     {
         return view('jobs.index', [
             "jobs" => Job::all(),
-            "companies" => Company::all() 
+            "companies" => Company::all()
         ]);
     }
 
@@ -46,9 +46,7 @@ class JobController extends Controller
     public function store(Request $request)
     {
 
-
         $company = explode(",", $request['company']);
-
 
         Job::create([
             'title' => $request['title'],
@@ -99,7 +97,7 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
-  
+
         Job::updateOrCreate([
             'id' => $id,
         ], [

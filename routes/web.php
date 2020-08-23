@@ -24,7 +24,7 @@ Route::get('/jobs/edit/{id}', 'JobController@edit')->name('jobs.edit')->middlewa
 Route::put('/jobs/update/{id}', 'JobController@update')->name('jobs.update')->middleware('auth');
 Route::get('/jobs', 'JobController@index')->name('jobs.index');
 Route::get('/jobs/{id}', 'JobController@show')->name('jobs.show');
-Route::delete('jobs/delete/{id}', 'JobController@destroy' )->name('jobs.delete');
+Route::delete('jobs/delete/{id}', 'JobController@destroy')->name('jobs.delete');
 
 //Companies
 Route::get('/companies/create', 'CompanyController@create')->name('companies.create')->middleware('auth');
@@ -33,11 +33,10 @@ Route::get('/companies/edit/{id}', 'CompanyController@edit')->name('companies.ed
 Route::put('/companies/update/{id}', 'CompanyController@update')->name('companies.update')->middleware('auth');
 Route::get('/companies', 'CompanyController@index')->name('companies.index');
 Route::get('/companies/{id}', 'CompanyController@show')->name('companies.show');
-Route::delete('companies/delete/{id}', 'CompanyController@destroy' )->name('companies.delete');
+Route::delete('companies/delete/{id}', 'CompanyController@destroy')->name('companies.delete');
 
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-

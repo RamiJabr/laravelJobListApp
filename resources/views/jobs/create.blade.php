@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <form action="/jobs/store" method="POST">
+  <form action="{{ route('jobs.store')}}" method="POST">
     @csrf
     <div class="container">
       <div class="form-group">
@@ -16,13 +16,10 @@
       <div class="form-group">
         <label for="company">Company</label>
         <select type="text" class="form-control" name="company" id="company" placeholder="Add a small description">
-       
-        
-        
-        @foreach( $companies as $company )
-          <option value="{{ $company->id }}, {{ $company->name }}">{{ $company->name }}</option>  
+          @foreach( $companies as $company )
+          <option value="{{ $company->id }}, {{ $company->name }}">{{ $company->name }}</option>
           @endforeach
-      </select>
+        </select>
       </div>
       <div class="form-group">
         <label for="description">Type</label>

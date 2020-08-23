@@ -17,7 +17,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-       return view('companies.index', ['companies' => Company::all()]);
+        return view('companies.index', ['companies' => Company::all()]);
     }
 
     /**
@@ -38,9 +38,6 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-
-
-        error_log($request);
         Company::create([
             'name' => $request['name'],
             'address' => $request['address'],
@@ -49,9 +46,11 @@ class CompanyController extends Controller
             'userId' => $request->user()->id
         ]);
 
-        return view ('companies.index', [
-            'companies' => Company::all()
-        ]);
+        // return view ('companies.index', [
+        //     'companies' => Company::all()
+        // ]);
+
+        return redirect("/companies");
     }
 
     /**
@@ -63,7 +62,7 @@ class CompanyController extends Controller
     public function show($id)
     {
         return view('companies.show', [
-            "company"=> Company::findOrFail($id),
+            "company" => Company::findOrFail($id),
             "jobs" => Job::where('companyId', $id)->get()
         ]);
     }
