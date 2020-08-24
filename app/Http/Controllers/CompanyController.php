@@ -46,10 +46,6 @@ class CompanyController extends Controller
             'userId' => $request->user()->id
         ]);
 
-        // return view ('companies.index', [
-        //     'companies' => Company::all()
-        // ]);
-
         return redirect("/companies");
     }
 
