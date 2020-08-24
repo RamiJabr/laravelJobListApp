@@ -6,8 +6,6 @@ use App\Company;
 use App\Job;
 use Illuminate\Http\Request;
 
-use function GuzzleHttp\json_decode;
-
 class CompanyController extends Controller
 {
     /**
