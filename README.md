@@ -9,7 +9,6 @@ Steps to preview :
 -   Open the console inside your folder and run #npm install
 -   Run #composer install
 -   Copy paste the .env.example and remove the ".example", change the Username and Password according to your config, if needed.
--   Create a data base in phpmyadmin and copy paste the name in your .env file after DB_DATABASE
+-   Create a data base in phpmyadmin or in your terminal with MariaDB and copy paste the name in your .env file after DB_DATABASE
 -   Run #php artisan migrate
 -   Run #php artisan serve
-    > > > > > > > 56ffcee54a4885519b506897a6aeff8b4fc1c885
